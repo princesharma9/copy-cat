@@ -6,7 +6,10 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:8000/Allproducts/')
       .then(response => response.json())
-      .then(data => setProductData(data))
+      .then(data => {
+        console.log(data)
+        setProductData(data)
+      })
       // .then(data => console.log('Data:', data))
       .catch(error => console.error('Error fetching product data:', error));
   }, []);
@@ -19,10 +22,11 @@ hello
      {
      
   productData.map((product) => (
+  
     <div key={product.id}>
-      <img src='product.image.url' alt='loda'></img>
+      <img src={`http://localhost:8000/media/${product.image}`} alt='product'></img>
       <h3>{product.discount}</h3>
-      
+      <h2>{productData.image}</h2>
       <h3>{product.name}</h3>
       <p>{product.details}</p>
       <p>₹{product.price}</p>
