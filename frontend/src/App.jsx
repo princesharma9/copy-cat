@@ -20,6 +20,9 @@ hello
      
   productData.map((product) => (
     <div key={product.id}>
+      <img src='product.image.url' alt='loda'></img>
+      <h3>{product.discount}</h3>
+      
       <h3>{product.name}</h3>
       <p>{product.details}</p>
       <p>₹{product.price}</p>
