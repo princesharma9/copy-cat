@@ -21,7 +21,7 @@ hello
   productData.map((product) => (
     <div key={product.id}>
       <h3>{product.name}</h3>
-      <p>{product.description}</p>
+      <p>{product.details}</p>
       <p>₹{product.price}</p>
     </div>
   ))
