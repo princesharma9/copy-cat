@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 function App() {
-  const [productData, setProductData] = useState('');
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:8000/Allproducts/')
@@ -14,12 +14,18 @@ function App() {
   return (
     <div className="App">
       <h1>Product List</h1>
-      <p>{productData || 'Loading...' }</p>
-      <ul>
-        {productData.map(product => (
-          <li key={product.id}>{product.name} - ${product.price}</li>
-        ))}
-      </ul>
+hello
+
+     {
+     
+  productData.map((product) => (
+    <div key={product.id}>
+      <h3>{product.name}</h3>
+      <p>{product.description}</p>
+      <p>₹{product.price}</p>
+    </div>
+  ))
+}
     </div>
   );
 }
