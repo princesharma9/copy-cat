@@ -1,31 +1,40 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
+import './App.css'
+// components
+import ProductCard from "./components/ProductCard";
+
+// data
+
 
 function App() {
   const [productData, setProductData] = useState([]);
-
+ 
+  const BASE_URL = 'http://localhost:8000'
+ 
   useEffect(() => {
-    fetch('http://localhost:8000/Allproducts/')
-      .then(response => response.json())
-      .then(data => setProductData(data))
-      // .then(data => console.log('Data:', data))
-      .catch(error => console.error('Error fetching product data:', error));
+    fetch("http://localhost:8000/products/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setProductData(data);
+      })
+      .catch((error) => console.error("Error fetching product data:", error));
   }, []);
 
   return (
-    <div className="App">
-      <h1>Product List</h1>
-hello
-
-     {
-     
-  productData.map((product) => (
-    <div key={product.id}>
-      <h3>{product.name}</h3>
-      <p>{product.details}</p>
-      <p>₹{product.price}</p>
-    </div>
-  ))
-}
+    <div className="app_parent">
+      <div className="products">
+        {productData.map((product) => (
+          <ProductCard
+            key={product.id}
+            brandName={product.brandName}
+            originalPrice={product.originalPrice}
+            rating={product.rating}
+            salePrice={product.salePrice}
+            productImage={`${BASE_URL}${product.productImage}`}
+          ></ProductCard>
+        ))}
+        </div>
     </div>
   );
 }
