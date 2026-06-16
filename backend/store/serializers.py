@@ -9,10 +9,10 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only = True)
-
+    off = serializers.ReadOnlyField()
 
     class Meta:
         model = Product
         fields = '__all__'
 
-
+ 
