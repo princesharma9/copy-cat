@@ -8,6 +8,9 @@ import ProductCard from "./components/ProductCard";
 
 function App() {
   const [productData, setProductData] = useState([]);
+ 
+  const BASE_URL = 'http://localhost:8000'
+ 
   useEffect(() => {
     fetch("http://localhost:8000/products/")
       .then((response) => response.json())
@@ -21,14 +24,14 @@ function App() {
   return (
     <div className="app_parent">
       <div className="products">
-        {productsData.map((product) => (
+        {productData.map((product) => (
           <ProductCard
             key={product.id}
             brandName={product.brandName}
             originalPrice={product.originalPrice}
             rating={product.rating}
             salePrice={product.salePrice}
-            productImage={product.productImage}
+            productImage={`${BASE_URL}${product.productImage}`}
           ></ProductCard>
         ))}
         </div>
