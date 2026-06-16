@@ -2,7 +2,7 @@ import "./ProductCard.css";
 
 function ProductCard({
   productName,
-  productImage,
+  brandImage,
   originalPrice,
   rating,
   discount,
@@ -16,14 +16,14 @@ function ProductCard({
       <div className="product-card__image_box">
         <img
           src={productImage}
-          alt={productName}
+          alt={brandName}
           className="product-card__image"
         />
         <div className="product-card__rating_box">
           ⭐{rating} 
         </div>
       </div>
-      <h3 className="product-card__title">{productName}</h3>
+      <h3 className="product-card__title">{brandName}</h3>
       <div className="product-card__price_section">
         <span className="product-card__sale_price">₹{salePrice}</span>
         <span className="product-card__original_price">{originalPrice}</span>
