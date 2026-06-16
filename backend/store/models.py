@@ -13,7 +13,7 @@ class Category(models.Model):
     
 class Product(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name='products')
-    productImage = models.ImageField(upload_to='product_images')
+    productImage = models.ImageField(upload_to='productImage')
     brandName = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField( auto_now_add=True)
