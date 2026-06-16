@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="app_parent">
       <div className="products">
-        {productsData.map((product) => (
+        {productData.map((product) => (
           <ProductCard
             key={product.id}
             brandName={product.brandName}

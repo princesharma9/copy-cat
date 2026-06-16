@@ -1,8 +1,8 @@
 import "./ProductCard.css";
 
 function ProductCard({
-  productName,
-  brandImage,
+  brandName,
+  productImage,
   originalPrice,
   rating,
   discount,
