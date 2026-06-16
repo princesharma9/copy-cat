@@ -8,8 +8,8 @@ import ProductCard from "./components/ProductCard";
 
 function App() {
   const [productData, setProductData] = useState([]);
-
   useEffect(() => {
+    const BASE_URL = 'http://localhost:8000'
     fetch("http://localhost:8000/products/")
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +29,7 @@ function App() {
             originalPrice={product.originalPrice}
             rating={product.rating}
             salePrice={product.salePrice}
-            productImage={product.productImage}
+            productImage={`${BASE_URL}${product.productImage}`}
           ></ProductCard>
         ))}
         </div>
