@@ -1,29 +1,35 @@
-import React from "react";
+import "./ProductCard.css";
+
 function ProductCard({
-  name,
-  details,
-  price,
-  image,
-  ratings,
+  productName,
+  productImage,
+  originalPrice,
+  rating,
   discount,
-  reviews,
-  sale_price,
-}){
-  return (
-    <>
-      <span className="product-card">
-        <img src={image} alt={name}></img>
-        <p>
-          ⭐ {ratings} ({reviews})
-        </p>
-        <h3>{name}</h3>
-        {/* <h2>{details}</h2> */}
-        <div>₹{price}</div>
-        <div>₹{sale_price}</div>
-        {/* <h3>{discount}% OFF</h3> */}
-      </span>
-    </>
+  salePrice,
+}) {
+  const discountPercentage = Math.round(
+    ((originalPrice - salePrice) / originalPrice) * 100,
   );
-};
+  return (
+    <div className="product-card">
+      <div className="product-card__image_box">
+        <img
+          src={productImage}
+          alt={productName}
+          className="product-card__image"
+        />
+        <div className="product-card__rating_box">
+          ⭐{rating} 
+        </div>
+      </div>
+      <h3 className="product-card__title">{productName}</h3>
+      <div className="product-card__price_section">
+        <span className="product-card__sale_price">₹{salePrice}</span>
+        <span className="product-card__original_price">{originalPrice}</span>
+      </div>
+    </div>
+  );
+}
 
 export default ProductCard;

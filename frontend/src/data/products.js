@@ -1,23 +1,44 @@
 const products = [
     {
         id: 1,
-        name: 'Nike Jordans',
-        details: 'The original Jordans',
-        price: 15000,
-        image: 'https://picsum.photos/300/300?random=1',
-        sale_price: 12000,
-        ratings: 4.5,
-        reviews: 104,
+        productName: 'This is product 1',
+         
+        originalPrice: 15000,
+        productImage: 'https://picsum.photos/300/300?random=1',
+        salePrice: 12000,
+         
+        rating: 4.5,
+        
     },
     {
         id: 2,
-        name: 'Puma extreme sports',
-        details: 'Move like you have to',
-        price: 9000,
-        image: 'https://picsum.photos/300/300?random=2',
-        sale_price: 7000,
-        ratings: 4.5,
-        reviews: 101,
+        productName: 'This is product 2',
+        description: 'Move like you have to',
+        originalPrice: 9000,
+        productImage: 'https://picsum.photos/300/300?random=2',
+        salePrice: 7000,
+        rating: 4.5,
+    
+    },
+    {
+        id: 3,
+        productName: 'This is product 3',
+        description: 'Move like you have to',
+        originalPrice: 6000,
+        productImage: 'https://picsum.photos/300/300?random=3',
+        salePrice: 5000,
+        rating: 4.5,
+        
+    },
+    {
+        id: 4,
+        productName: 'This is product 4',
+        description: 'Move like you have to',
+        originalPrice: 17000,
+        productImage: 'https://picsum.photos/300/300?random=',
+        salePrice: 15000,
+        rating: 4.5,
+        
     },
 ]
 

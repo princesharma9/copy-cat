@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import './App.css'
 // components
 import ProductCard from "./components/ProductCard";
 
@@ -20,21 +20,20 @@ function App() {
   // }, []);
 
   return (
-    <>
-      <span className="card">
+    <div className="app_parent">
+      <div className="products">
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            name={product.name}
-            price={product.price}
-            ratings={product.ratings}
-            reviews={product.reviews}
-            sale_price={product.sale_price}
-            image={product.image}
+            productName={product.productName}
+            originalPrice={product.originalPrice}
+            rating={product.rating}
+            salePrice={product.salePrice}
+            productImage={product.productImage}
           ></ProductCard>
         ))}
-      </span>
-    </>
+        </div>
+    </div>
   );
 }
 
