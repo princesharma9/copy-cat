@@ -8,7 +8,6 @@ import ProductCard from "./components/ProductCard";
 
 function App() {
   const [productData, setProductData] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:8000/products/")
       .then((response) => response.json())
