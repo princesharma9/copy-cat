@@ -1,13 +1,29 @@
-.products{
-display: grid;
-width: 100%;
-grid-template-columns:
-repeat(auto-fit,minmax(10px,2fr));
-
+.products {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+ 
+/* Tablet */
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
+  }
 }
 
-.app_parent{
-display: flex;
+/* Desktop */
+@media (min-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
-
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
