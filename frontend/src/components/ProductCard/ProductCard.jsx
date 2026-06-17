@@ -27,7 +27,7 @@ function ProductCard({
         <div className="product-card__title_description">
       <h3 className="product-card__title">{brandName}</h3>
       <h3 className="product-card_description">{description}</h3>
-         </div>
+         </div> 
       <div className="product-card__price_section">
         <span className="product-card__sale_price">₹{salePrice}</span>
         <span className="product-card__original_price">{originalPrice}</span>

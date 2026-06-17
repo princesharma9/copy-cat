@@ -15,7 +15,7 @@
 }
 
 /* Desktop */
-@media (min-width: 1024px) {
+@media (min-width:  1024px) {
   .products {
     grid-template-columns: repeat(4, 1fr);
   }

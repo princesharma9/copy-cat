@@ -36,6 +36,7 @@ function App() {
             salePrice={product.salePrice}
             productImage={`${BASE_URL}${product.productImage}`}
             description={product.description}
+          
           ></ProductCard>
         ))}
         </div>
