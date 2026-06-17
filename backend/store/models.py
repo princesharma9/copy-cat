@@ -27,6 +27,7 @@ class Product(models.Model):
     size = models.CharField(max_length=5, choices=size_choice)
     salePrice = models.IntegerField()
     originalPrice = models.IntegerField()
+     
 
     # @property
     # def off(self):
