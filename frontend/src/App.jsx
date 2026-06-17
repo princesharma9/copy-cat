@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import './App.css'
 // components
-import ProductCard from "./components/ProductCard";
+import ProductCard from "./components/ProductCard/ProductCard";
+import Navbar from "./components/Navbar/Navbar";
 
 // data
 
@@ -23,6 +24,8 @@ function App() {
 
   return (
     <div className="app_parent">
+        <Navbar></Navbar>
+
       <div className="products">
         {productData.map((product) => (
           <ProductCard
@@ -32,6 +35,8 @@ function App() {
             rating={product.rating}
             salePrice={product.salePrice}
             productImage={`${BASE_URL}${product.productImage}`}
+            description={product.description}
+          
           ></ProductCard>
         ))}
         </div>

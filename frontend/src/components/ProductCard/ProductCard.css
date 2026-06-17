@@ -1,0 +1,128 @@
+  body {
+    background-color: white;
+    font-family:monospace;
+  }
+
+  /* Card */
+  .product-card {
+    width: 100%;
+    max-width: 180px;
+
+    border-radius: 15px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box ;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Image Box */
+  .product-card__image_box {
+    background-color: #EAE7DC;
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Image */
+  .product-card__image {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Rating */
+  .product-card__rating_box {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 0.9rem;
+  }
+
+  /* Title */
+.product-card__title_description {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.product-card__title {
+  flex-shrink: 0;
+}
+
+
+.product-card_description{
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1; 
+  opacity: 0.7 ; 
+  }
+
+
+  /* Price Section */
+  .product-card__price_section {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    font-size: 0.9rem;
+  }
+
+  .product-card__sale_price {
+    font-weight: 900;
+  }
+
+  .product-card__original_price {
+    text-decoration: line-through;
+    opacity: 0.7;
+    font-size: 0.8rem;
+  }
+
+  .product-card__discount {
+    font-size: 0.75rem;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    .product-card {
+      max-width: 260px;
+        margin: 0 20px;
+    }
+
+    .product-card__title {
+      font-size: 1rem;
+    }
+
+    .product-card__price_section {
+      font-size: 1rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .product-card {
+      max-width: 300px;
+    }
+
+    .product-card__title {
+      font-size: 1.05rem;
+    }
+
+    .product-card__price_section {
+      font-size: 1.05rem;
+    }
+  }
