@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 function ProductCard({
@@ -8,11 +9,13 @@ function ProductCard({
   discount,
   salePrice,
   description,
+  id,
 }) {
   const discountPercentage = Math.round(
     ((originalPrice - salePrice) / originalPrice) * 100,
   );
   return (
+    <Link to={`/products/${id}`} className="ProductDetails" >
     <div className="product-card">
       <div className="product-card__image_box">
         <img
@@ -33,6 +36,7 @@ function ProductCard({
         <span className="product-card__original_price">{originalPrice}</span>
       </div>
     </div>
+    </Link>
   );
 }
 

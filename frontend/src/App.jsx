@@ -3,9 +3,8 @@ import './App.css'
 // components
 import ProductCard from "./components/ProductCard/ProductCard";
 import Navbar from "./components/Navbar/Navbar";
-
-// data
-
+import { Routes, Route } from 'react-router-dom'
+import ProductDetails from './pages/ProductDetails'
 
 function App() {
   const [productData, setProductData] = useState([]);
@@ -13,7 +12,7 @@ function App() {
   const BASE_URL = 'http://localhost:8000'
  
   useEffect(() => {
-    fetch("http://localhost:8000/products/")
+    fetch(`${BASE_URL}/products/`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -22,25 +21,31 @@ function App() {
       .catch((error) => console.error("Error fetching product data:", error));
   }, []);
 
-  return (
+  const Home = () => (
     <div className="app_parent">
-        <Navbar></Navbar>
-
+      <Navbar />
       <div className="products">
         {productData.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
             brandName={product.brandName}
             originalPrice={product.originalPrice}
             rating={product.rating}
             salePrice={product.salePrice}
             productImage={`${BASE_URL}${product.productImage}`}
             description={product.description}
-          
-          ></ProductCard>
+          />
         ))}
-        </div>
+      </div>
     </div>
+  );
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
+    </Routes>
   );
 }
 
