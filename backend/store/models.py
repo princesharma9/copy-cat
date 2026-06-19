@@ -14,8 +14,15 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name='products')
     productImage = models.ImageField(upload_to='product_images')
+    productImageTwo = models.ImageField(upload_to='product_images')
+    productImageThree = models.ImageField(upload_to='product_images')
+    productImageFour = models.ImageField(upload_to='product_images')
+    productImageFive = models.ImageField(upload_to='product_images')
+    Stock = models.BooleanField(True)
     brandName = models.CharField(max_length=50)
     description = models.TextField(blank=True)
+    uprdescription = models.TextField(blank=True)
+    
     created_at = models.DateTimeField( auto_now_add=True)
     rating = models.DecimalField(max_digits=5, decimal_places=1, default=4.5, blank=True, null=True)
     size_choice = [
@@ -79,8 +86,30 @@ class OrderItem(models.Model):
 
 
 
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'Cart {self.id} for {self.user}'
+
+    @property
+    def total(self):
+        return sum(item.subtotal for item in self.items.all())
+        
     
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart,related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f'{self.quantity} X {self.product.brandName}'
+
+    @property
+    def subtotal(self):
+        return self.quantity * self.product.salePrice
+        
 
 
 

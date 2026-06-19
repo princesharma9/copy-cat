@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer
+from .models import Product, Category, Cart, CartItem
+from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer
 
 @api_view(['GET'])
 def get_products(request):
@@ -24,4 +24,11 @@ def get_product(request, product_id):
 def get_category(request):
     categories = Category.objects.all()
     serializer = CategorySerializer(categories, many = True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_cart(request):
+    cart, created = Cart.objects.get_or_create(user  = None)
+    serializer = CategorySerializer(cart)
     return Response(serializer.data)
